@@ -65,22 +65,65 @@ img {
   width: auto;
 }
 
-/* ===================== HERO ===================== */
+/* ===================== HERO (con Academy Pattern a los lados) ===================== */
 .hero {
   background: linear-gradient(135deg, var(--ford-navy) 0%, var(--ford-blue) 60%, var(--ford-light-blue) 100%);
-  padding: 70px 0 60px;
-  text-align: center;
+  padding: 0;
+  overflow: hidden;
 }
 
-.hero-title {
-  color: var(--ford-white);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 800;
-  line-height: 1.3;
-  max-width: 900px;
+.hero-flex {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  letter-spacing: -0.5px;
+  min-height: 320px;
 }
+
+.pattern-side {
+  flex: 1 1 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.9;
+  min-width: 60px;
+  max-width: 260px;
+}
+
+.pattern-left {
+  object-position: right center;
+}
+
+.pattern-right {
+  object-position: left center;
+  transform: scaleX(-1); /* efecto espejo para simetría */
+}
+
+.hero-graphic {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  align-self: center;
+  padding: 20px 10px;
+  object-fit: contain;
+}
+
+/* Responsive: en pantallas pequeñas, ocultamos las franjas laterales
+   para que el título se lea grande y limpio */
+@media (max-width: 768px) {
+  .pattern-side {
+    display: none;
+  }
+
+  .hero-graphic {
+    max-width: 90%;
+    padding: 40px 20px;
+  }
+}
+
 
 /* ===================== INTRO ===================== */
 .intro {
